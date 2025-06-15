@@ -8,4 +8,8 @@ def __int__(self,csv_path="movies.csv")
     tfidf=TfidfVectorizer(stop_words="english")
     genre_vector=tfidf.fit_transform(self.movies['genres'])
     self.similarirty=cosine_similarity(genre_vector)
-    
+    self.title_index=pd.Series(self.movies.index , index=self.movies['titles']).drop_duplicates()
+def recommend(self,movie_title,top_n=5)
+    index=self.title_index.get(movie_title)
+    if index is None:
+    return []
