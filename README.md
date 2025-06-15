@@ -32,7 +32,7 @@ Movie Matchmaker is a content-based movie recommendation system built with Pytho
 
 
 
--->app.py              # Main Streamlit app
+-->front.py              # Main Streamlit app
 
 -->recommender.py      # AI logic for recommendation
 
