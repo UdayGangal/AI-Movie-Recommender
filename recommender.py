@@ -9,7 +9,11 @@ def __int__(self,csv_path="movies.csv")
     genre_vector=tfidf.fit_transform(self.movies['genres'])
     self.similarirty=cosine_similarity(genre_vector)
     self.title_index=pd.Series(self.movies.index , index=self.movies['titles']).drop_duplicates()
+
+
 def recommend(self,movie_title,top_n=5)
     index=self.title_index.get(movie_title)
     if index is None:
     return []
+similar_movies=list(enumerate(self.similarity[index]))
+similar_movies=sorted(similar_movies , key=lambda x:x[1] , reverse true)[1:top_n+1]
