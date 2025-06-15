@@ -1,18 +1,15 @@
 import streamlit as st
 from recommender import movierecommender
 
-# ---------------------
-# Page Configuration
-# ---------------------
+# Page Config
+
 st.set_page_config(
     page_title="🎬 Movie Matchmaker",
     layout="centered",
     initial_sidebar_state="collapsed"
 )
 
-# ---------------------
-# Background + Color Setup
-# ---------------------
+#CSS 
 bg_url = "https://images.unsplash.com/photo-1440404653325-ab127d49abc1?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
 
 st.markdown(f"""
@@ -95,17 +92,14 @@ st.markdown(f"""
     </style>
 """, unsafe_allow_html=True)
 
-# ---------------------
-# Main Container Start
-# ---------------------
 with st.container():
     st.markdown('<div class="main-container">', unsafe_allow_html=True)
 
-    # Header
+    
     st.markdown("<h1>🎞️ Movie Matchmaker</h1>", unsafe_allow_html=True)
     st.markdown("<p class='subtitle'>Find your next favorite film based on one you love 🍿</p>", unsafe_allow_html=True)
 
-    # Recommender
+    
     recommender = movierecommender()
     movie_list = recommender.get_all_titles()
 
