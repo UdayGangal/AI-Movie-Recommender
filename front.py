@@ -93,3 +93,28 @@ st.markdown(f"""
         max-width: 700px;
     }}
     </style>
+""", unsafe_allow_html=True)
+
+# ---------------------
+# Main Container Start
+# ---------------------
+with st.container():
+    st.markdown('<div class="main-container">', unsafe_allow_html=True)
+
+    # Header
+    st.markdown("<h1>🎞️ Movie Matchmaker</h1>", unsafe_allow_html=True)
+    st.markdown("<p class='subtitle'>Find your next favorite film based on one you love 🍿</p>", unsafe_allow_html=True)
+
+    # Recommender
+    recommender = movierecommender()
+    movie_list = recommender.get_all_titles()
+
+    selected_movie = st.selectbox("🎬 Choose a movie", movie_list)
+
+    if st.button("🎯 Recommend"):
+        st.markdown("### 🎥 You might enjoy:")
+        recommendations = recommender.recommend(selected_movie)
+        for movie in recommendations:
+            st.markdown(f"<div class='movie-box'>🎬 {movie}</div>", unsafe_allow_html=True)
+
+    st.markdown("</div>", unsafe_allow_html=True)
